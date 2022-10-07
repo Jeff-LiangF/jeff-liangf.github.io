@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Open-Vocabulary Semantic Segmentation with Mask-adapted CLIP">
+  <meta name="keywords" content="Vision-language models, Open-vocabulary segmentation, CLIP">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Open-Vocabulary Semantic Segmentation with Mask-adapted CLIP</title>
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/ut_icon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Open-Vocabulary Semantic Segmentation with Mask-adapted CLIP</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://jeff-liangf.github.io/">Feng Liang</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/bichenwu">Bichen Wu</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://sites.google.com/view/xiaoliangdai/">Xiaoliang Dai</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://kunpengli1994.github.io/">Kunpeng Li</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://yinan-zhao.github.io/">Yinan Zhao</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://hangzhang.org/">Hang Zhang</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/peizhao-zhang-14846042/">Peizhao Zhang</a><sup>2</sup>
+            </span>
+            <span class="author-block">
+              <a href="https://sites.google.com/site/vajdap">Peter Vajda</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.ece.utexas.edu/people/faculty/diana-marculescu">Diana Marculescu</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>The University of Texas at Austin,</span>
+            <span class="author-block"><sup>2</sup>Meta Reality Labs,</span>
+            <span class="author-block"><sup>3</sup>Cruise</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv (Coming)</span>
+                </a>
+              </span>
+              <!--&lt;!&ndash; Video Link. &ndash;&gt;-->
+              <!--<span class="link-block">-->
+                <!--<a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"-->
+                   <!--class="external-link button is-normal is-rounded is-dark">-->
+                  <!--<span class="icon">-->
+                      <!--<i class="fab fa-youtube"></i>-->
+                  <!--</span>-->
+                  <!--<span>Video</span>-->
+                <!--</a>-->
+              <!--</span>-->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://www.github.com"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (Coming)</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="demo" autoplay muted loop playsinline height="100%">
+        <source src="./static/images/ovseg.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        Our model can perform open-vocabulary segmentation with <span style="color: orange; font-weight:bold">user-defined arbitrary queries</span>.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+          Open-vocabulary semantic segmentation aims to segment an image into semantic regions according to text descriptions,
+            which may not have been seen during training.
+          Recent two-stage methods first generate class-agnostic mask proposals and then leverage pre-trained vision-language models,
+            <i>e.g.</i>, CLIP, to classify masked regions.
+          We identify the performance bottleneck of this paradigm to be the pre-trained CLIP model,
+            since it does not perform well on masked images.
+          To address this, we propose to finetune CLIP on a collection of masked image regions and their corresponding text descriptions.
+            We collect training data by mining an existing image-caption dataset (<i>e.g.</i>, COCO Captions),
+            using CLIP to match masked image regions to nouns in the image captions.
+          Compared with the more precise and manually annotated segmentation labels with fixed classes (<i>e.g.</i>, COCO-Stuff),
+            we find our noisy but diverse dataset can better retain CLIP's generalization ability.
+          Along with finetuning the entire model, we utilize the "blank" areas in masked images using a method we dub <span style="color: orange; font-weight:bold">mask prompt tuning</span>.
+          Experiments demonstrate mask prompt tuning brings significant improvement without modifying any weights of CLIP,
+            and it can further improve a fully finetuned model.
+          In particular, when trained on COCO and evaluated on ADE20K-150, our best model achieves 29.6% mIoU,
+            which is +8.5% higher than the previous state-of-the-art.
+          <span style="color: orange; font-weight:bold">For the first time, open-vocabulary generalist models match the performance
+            of supervised specialist models in 2017 without dataset specific adaptations</span>.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!--&lt;!&ndash; Paper video. &ndash;&gt;-->
+    <!--<div class="columns is-centered has-text-centered">-->
+      <!--<div class="column is-four-fifths">-->
+        <!--<h2 class="title is-3">Video</h2>-->
+        <!--<div class="publication-video">-->
+          <!--<iframe src="h"-->
+                  <!--frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;/ Paper video. &ndash;&gt;-->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+
+        <!-- Motivation. -->
+        <h2 class="title is-3">Motivation</h2>
+
+        <div class="subtitle has-text-justified">
+          <p>
+          Our analysis reveals the pre-trained CLIP does <span style="color: orange; font-weight:bold">not</span> perform well on mask proposals,
+            making it the performance bottleneck of two-stage approaches.
+          </p>
+        </div>
+
+        <div class="container is-max-desktop">
+          <div class="hero-body">
+            <video id="motivation" autoplay muted loop playsinline height="100%">
+              <source src="./static/images/motivation.mp4"
+                      type="video/mp4">
+            </video>
+            <h2 align="left">
+              <p>(a) CLIP is pre-trained with natural images with little data augmentation.</p>
+              <p>(b) Two-stage open-vocabulary semantic segmentation approaches first generate class-agnostic mask proposals
+              and then leverage pre-trained CLIP to do open-vocabulary classification.
+              The input of the CLIP model is cropped masked images, which have huge domain gap from the natural images.</p>
+              <p>(c) Our analysis reveals that pre-trained CLIP does not work well on masked images.</p>
+            </h2>
+          </div>
+        </div>
+
+
+        <br/>
+        <!--/ Motivation. -->
+
+        <!-- Method. -->
+        <h2 class="title is-3">Method</h2>
+
+        <div class="subtitle has-text-justified">
+          <p> </p>
+          <p>
+          Our model consists of one segmentation model, <i>e.g.</i>, MaskFormer, and one CLIP model.
+          </p>
+        </div>
+
+        <div class="container is-max-desktop">
+          <div class="hero-body">
+            <video id="method" autoplay muted loop playsinline height="100%">
+              <source src="./static/images/method.mp4"
+                      type="video/mp4">
+            </video>
+            <h2 align="left">
+              <p>We first train the modified MaskFormer as the open-vocabulary segmentation baseline (Section 3.1).
+	      Then we collect diverse mask-category pairs from image captions (Section 3.2) and adapt CLIP for masked images  (Section 3.3).</p>
+            </h2>
+          </div>
+        </div>
+        <!--/ Method. -->
+
+        <!-- Results. -->
+        <h2 class="title is-3">Results</h2>
+
+        <div class="subtitle has-text-justified">
+          <p>
+            For the first time, we show open-vocabulary <span style="color: orange; font-weight:bold">generalist</span>
+            models can match the performance of supervised <span style="color: orange; font-weight:bold">specialist</span> models
+              without dataset specific adaptations.
+          </p>
+
+        </div>
+
+        <style type="text/css">
+        .tg  {border-collapse:collapse;border-color:#ccc;border-spacing:0;margin:0px auto;}
+        .tg td{background-color:#fff;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+          font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg th{background-color:#f0f0f0;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+          font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg .tg-cey4{border-color:inherit;font-size:16px;text-align:left;vertical-align:top}
+        .tg .tg-x5q1{font-size:16px;text-align:left;vertical-align:top}
+        .tg .tg-o5pl{color:#f56b00;font-size:16px;font-weight:bold;text-align:left;vertical-align:top}
+        .tg .tg-oame{font-size:16px;font-style:italic;text-align:center;vertical-align:top}
+        .tg .tg-fa52{color:#656565;font-size:16px;text-align:center;vertical-align:top}
+        .tg .tg-um6g{color:#656565;font-size:16px;text-align:left;vertical-align:top}
+        </style>
+        <table class="tg">
+        <thead>
+          <tr>
+            <th class="tg-cey4">method</th>
+            <th class="tg-cey4">backbone</th>
+            <th class="tg-cey4">training dataset</th>
+            <th class="tg-cey4">A-847</th>
+            <th class="tg-x5q1">PC-459</th>
+            <th class="tg-x5q1">A-150</th>
+            <th class="tg-x5q1">PC-59</th>
+            <th class="tg-x5q1">PAS-20</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="tg-oame" colspan="8"><span style="font-weight:400;font-style:italic">Open-vocabulary generalist models.</span></td>
+          </tr>
+          <tr>
+            <td class="tg-cey4">SPNet</td>
+            <td class="tg-cey4">R-101</td>
+            <td class="tg-cey4">PASCAL-15</td>
+            <td class="tg-cey4">-</td>
+            <td class="tg-x5q1">-</td>
+            <td class="tg-x5q1">-</td>
+            <td class="tg-x5q1">24.3</td>
+            <td class="tg-x5q1">18.3</td>
+          </tr>
+          <tr>
+            <td class="tg-cey4">ZS3Net</td>
+            <td class="tg-cey4">R-101</td>
+            <td class="tg-cey4">PASCAL-15</td>
+            <td class="tg-cey4">-</td>
+            <td class="tg-x5q1">-</td>
+            <td class="tg-x5q1">-</td>
+            <td class="tg-x5q1">19.4</td>
+            <td class="tg-x5q1">38.3</td>
+          </tr>
+          <tr>
+            <td class="tg-x5q1">LSeg</td>
+            <td class="tg-x5q1">R-101</td>
+            <td class="tg-x5q1">PASCAL-15</td>
+            <td class="tg-x5q1">-</td>
+            <td class="tg-x5q1">-</td>
+            <td class="tg-x5q1">-</td>
+            <td class="tg-x5q1">-</td>
+            <td class="tg-x5q1">47.4</td>
+          </tr>
+          <tr>
+            <td class="tg-x5q1">LSeg+</td>
+            <td class="tg-x5q1">R-101</td>
+            <td class="tg-x5q1">COCO Panoptic</td>
+            <td class="tg-x5q1">2.5</td>
+            <td class="tg-x5q1">5.2</td>
+            <td class="tg-x5q1">13.0</td>
+            <td class="tg-x5q1">36.0</td>
+            <td class="tg-x5q1">59.0</td>
+          </tr>
+          <tr>
+            <td class="tg-x5q1">SimBaseline</td>
+            <td class="tg-x5q1">R-101c</td>
+            <td class="tg-x5q1">COCO-Stuff-156</td>
+            <td class="tg-x5q1">-</td>
+            <td class="tg-x5q1">-</td>
+            <td class="tg-x5q1">15.3</td>
+            <td class="tg-x5q1">-</td>
+            <td class="tg-x5q1">74.5</td>
+          </tr>
+          <tr>
+            <td class="tg-x5q1">ZegFormer</td>
+            <td class="tg-x5q1">R-50</td>
+            <td class="tg-x5q1">COCO-Stuff-156</td>
+            <td class="tg-x5q1">-</td>
+            <td class="tg-x5q1">-</td>
+            <td class="tg-x5q1">16.4</td>
+            <td class="tg-x5q1">-</td>
+            <td class="tg-x5q1">80.7</td>
+          </tr>
+          <tr>
+            <td class="tg-x5q1">OpenSeg</td>
+            <td class="tg-x5q1">R-101</td>
+            <td class="tg-x5q1">COCO Panoptic</td>
+            <td class="tg-x5q1">4.0</td>
+            <td class="tg-x5q1">6.5</td>
+            <td class="tg-x5q1">15.3</td>
+            <td class="tg-x5q1">36.9</td>
+            <td class="tg-x5q1">60.0</td>
+          </tr>
+          <tr>
+            <td class="tg-x5q1">OVSeg (Ours)</td>
+            <td class="tg-x5q1">R-101c</td>
+            <td class="tg-x5q1">COCO-Stuff-171</td>
+            <td class="tg-o5pl">7.1</td>
+            <td class="tg-o5pl">11.0</td>
+            <td class="tg-o5pl">24.8</td>
+            <td class="tg-o5pl">53.3</td>
+            <td class="tg-o5pl">92.6</td>
+          </tr>
+          <tr>
+            <td class="tg-x5q1">LSeg+</td>
+            <td class="tg-x5q1">Eff-B7</td>
+            <td class="tg-x5q1">COCO Panoptic</td>
+            <td class="tg-x5q1">3.8</td>
+            <td class="tg-x5q1">7.8</td>
+            <td class="tg-x5q1">18.0</td>
+            <td class="tg-x5q1">46.5</td>
+            <td class="tg-x5q1">-</td>
+          </tr>
+          <tr>
+            <td class="tg-x5q1">OpenSeg</td>
+            <td class="tg-x5q1">Eff-B7</td>
+            <td class="tg-x5q1">COCO Panoptic</td>
+            <td class="tg-x5q1"><span style="font-weight:400;font-style:normal">6.3</span></td>
+            <td class="tg-x5q1">9.0</td>
+            <td class="tg-x5q1">21.1</td>
+            <td class="tg-x5q1">42.1</td>
+            <td class="tg-x5q1">-</td>
+          </tr>
+          <tr>
+            <td class="tg-x5q1">OVSeg (Ours)</td>
+            <td class="tg-x5q1">Swin-B</td>
+            <td class="tg-x5q1">COCO-Stuff-171</td>
+            <td class="tg-o5pl">9.0</td>
+            <td class="tg-o5pl">12.4</td>
+            <td class="tg-o5pl">29.6</td>
+            <td class="tg-o5pl">55.7</td>
+            <td class="tg-o5pl">94.5</td>
+          </tr>
+          <tr>
+            <td class="tg-fa52" colspan="8"><span style="font-weight:400;font-style:italic">Supervised specialist models.</span></td>
+          </tr>
+          <tr>
+            <td class="tg-um6g">FCN</td>
+            <td class="tg-um6g">FCN-8s</td>
+            <td class="tg-um6g">Same as test</td>
+            <td class="tg-um6g">-</td>
+            <td class="tg-um6g">-</td>
+            <td class="tg-um6g">29.4</td>
+            <td class="tg-um6g">37.8</td>
+            <td class="tg-um6g">-</td>
+          </tr>
+          <tr>
+            <td class="tg-um6g">Deeplab</td>
+            <td class="tg-um6g">R-101</td>
+            <td class="tg-um6g">Same as test</td>
+            <td class="tg-um6g">-</td>
+            <td class="tg-um6g">-</td>
+            <td class="tg-um6g">-</td>
+            <td class="tg-um6g">45.7</td>
+            <td class="tg-um6g">77.7</td>
+          </tr>
+          <tr>
+            <td class="tg-um6g">SelfTrain</td>
+            <td class="tg-um6g">Eff-L2</td>
+            <td class="tg-um6g">Same as test</td>
+            <td class="tg-um6g">-</td>
+            <td class="tg-um6g">-</td>
+            <td class="tg-um6g">-</td>
+            <td class="tg-um6g">-</td>
+            <td class="tg-um6g">90.0</td>
+          </tr>
+        </tbody>
+        </table>
+
+        <br/>
+        <!--/ Motivation. -->
+
+
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+        <pre><code>TBD
+</code></pre>
+    <!--<pre><code>@article{park2021nerfies,-->
+  <!--author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},-->
+  <!--title     = {Nerfies: Deformable Neural Radiance Fields},-->
+  <!--journal   = {ICCV},-->
+  <!--year      = {2021},-->
+<!--}</code></pre>-->
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <!--<a class="icon-link"-->
+         <!--href="">-->
+        <!--<i class="fas fa-file-pdf"></i>-->
+      <!--</a>-->
+      <!--<a class="icon-link" href="" class="external-link" disabled>-->
+        <!--<i class="fab fa-github"></i>-->
+      <!--</a>-->
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Thanks to <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
