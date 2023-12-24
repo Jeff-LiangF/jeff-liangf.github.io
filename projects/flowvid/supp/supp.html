@@ -1,0 +1,282 @@
+<link href="https://fonts.cdnfonts.com/css/chalkduster" rel="stylesheet">
+<style>
+    @import url('https://fonts.cdnfonts.com/css/chalkduster');
+</style>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>FlowVid: Taming Imperfect Optical Flows for Consistent Video-to-Video Synthesis </title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<button style="position: fixed;right: 15px;top:  50%;height: 100px;width: 140px; font-size: 20px;" type="button"><a href="supp.html#top">Back to top</a></button> 
+<div class="page-container">
+  <h1 align="center">FlowVid: Taming Imperfect Optical Flows for Consistent Video-to-Video Synthesis</h1>
+  <h2 align="center">Supplementary Material</h2>
+	
+  <p align="center">&nbsp;</p>
+	<a href="supp.html#top"></a>
+  <ul>
+	<li><a href="supp.html#our_results_container">FlowVid results</a></li>
+	<li><a href="supp.html#comparisons_baselines_container">Comparisons to State-of-the-art video-to-video methods</a></li>
+  <li><a href="supp.html#Ablations">Ablations</a></li>
+  <li><a href="supp.html#Limitations">Limitations</a></li>
+  </ul>
+  <p><br><span style="color: red;">All videos are compressed. We recommend watching all videos in full screen. Click on the videos for seeing them in full scale. </span></p>
+	
+  <!------------------ BEGIN SECTION ------------------>
+
+  <hr>
+	
+  <h2 id="our_results_container" align="left"><a name="image-results" id="image-results"></a>Our FlowVid Results</h2>
+
+  <p align="left">
+  </p>
+
+
+  <table  width="1200" align="center" >
+		<tbody>
+			<!-- <th>A</th>
+			<th>B</th>
+			<th>C</th> -->
+                  <tr>
+                    <th style="font-size: 16px">Input video</th>
+                    <th style="font-size: 16px">"a woman wearing headphones, <span style="color: red;">in flat 2d anime</span>"</th>
+                    <th style="font-size: 16px">"a <span style="color: red;">Greek statue</span> wearing headphones"</th>
+                    <!-- <th style="font-size: 16px">"a woman with <span style="color: red;">black hair</span> wearing headphones"</th> -->
+                </tr>
+                <tr>
+                    <th style="padding-bottom: 25px;"><video width="400" src="new_assets/woman/woman.mp4" autoplay loop controls muted /></th>
+                    <th style="padding-bottom: 25px;"><video width="400" src="new_assets/woman/woman_anime.mp4" autoplay loop controls muted /></th>
+                    <th style="padding-bottom: 25px;"><video width="400" src="new_assets/woman/woman_greek_statue.mp4" autoplay loop controls muted /></th>
+                    <!-- <th><video width="300" src="new_assets/woman/woman_blackhair.mp4" autoplay loop controls muted /></th> -->
+                </tr>
+                <tr>
+                    <th style="font-size: 16px">Input video</th>
+                    <th style="font-size: 16px">"a <span style="color: red;">Chinese ink painting</span> of a panda eating bamboo"</th>
+                    <th style="font-size: 16px">"a <span style="color: red;">koala</span> eating bamboo"</th>
+                    <!-- <th style="font-size: 16px">"a panda with a <span style="color: red;">pig nose</span> eating bamboo"</th> -->
+                </tr>
+                <tr>
+                  <th style="padding-bottom: 25px;"><video width="400" src="new_assets/panda/panda.mp4" autoplay loop controls muted /></th>
+                  <th style="padding-bottom: 25px;"><video width="400" src="new_assets/panda/panda_chineseink.mp4" autoplay loop controls muted /></th>
+                  <th style="padding-bottom: 25px;"><video width="400" src="new_assets/panda/panda_koala.mp4" autoplay loop controls muted /></th>
+                  <!-- <th><video width="300" src="new_assets/panda/panda_pignose.mp4" autoplay loop controls muted /></th> -->
+              </tr>
+                <tr>
+                  <th style="font-size: 16px">Input video</th>
+                  <th style="font-size: 16px">"A <span style="color: red;">pixel art</span> of an artist's rendering of an earth in space"</th>
+                  <th style="font-size: 16px">"An artist's rendering of a <span style="color: red;">Mars</span> in space"</th>
+              </tr>
+              <tr>
+                  <th style="padding-bottom: 25px;"><video width="400" src="new_assets/earth/earth.mp4" autoplay loop controls muted /></th>
+                  <th style="padding-bottom: 25px;"><video width="400" src="new_assets/earth/earth_pixel.mp4" autoplay loop controls muted /></th>
+                  <th style="padding-bottom: 25px;"><video width="400" src="new_assets/earth/earth_mars.mp4" autoplay loop controls muted /></th>
+              </tr>
+              <tr>
+                <th style="font-size: 16px">Input video</th>
+                <th style="font-size: 16px">"<span style="color: red;">Ukiyo-e Art</span> - a man is pulling a rope in a gym "</th>
+                <th style="font-size: 16px">"A <span style="color: red;">gorilla</span> is pulling a rope in a gym</span>"</th>
+            </tr>
+            <tr>
+                <th style="padding-bottom: 25px;"><video width="400" src="new_assets/man_pulling_rope/man_pulling_rope.mp4" autoplay loop controls muted /></th>
+                <th style="padding-bottom: 25px;"><video width="400" src="new_assets/man_pulling_rope/man_pulling_rope_ukiyoe.mp4" autoplay loop controls muted /></th>
+                <th style="padding-bottom: 25px;"><video width="400" src="new_assets/man_pulling_rope/man_pulling_rope_gorilla.mp4" autoplay loop controls muted /></th>
+            </tr>
+            <tr>
+              <th style="font-size: 16px">Input video</th>
+              <th style="font-size: 16px">"A shirtless man is doing a workout in a park, <span style="color: red;">with the Egyptian pyramids visible in the distance</span>."</th>
+              <th style="font-size: 16px">"<span style="color: red;">Batman</span> is doing a workout in a park"</th>
+          </tr>
+          <tr>
+              <th><video width="400" src="new_assets/man_workout/man_workout.mp4" autoplay loop controls muted /></th>
+              <th><video width="400" src="new_assets/man_workout/man_workout_pyramid.mp4" autoplay loop controls muted /></th>
+              <th><video width="400" src="new_assets/man_workout/man_workout_batman.mp4" autoplay loop controls muted /></th>
+          </tr>
+
+		</tbody>
+	</table>
+    <!------------------ END SECTION ------------------>
+    
+  <!------------------ BEGIN SECTION ------------------>
+  <p>&nbsp;</p>
+  <hr>
+	
+  <h2 id="comparisons_baselines_container" align="left"><a name="image-results" id="image-results"></a>Comparisons to State-of-the-art video-to-video methods</h2>
+  <p align="left"> We compare our flowVid to 
+    <!-- Existing methods of text-guided video editing suffer from temporal inconsistency. -->
+    <ul>
+        <li>Per frame ControlNet (<a href="supp.html#ref-controlnet">[1]</a>).</li> 
+        <li>CoDeF (<a href="supp.html#ref-codef">[2]</a>).</li> 
+        <li>Rerender-a-Video (<a href="supp.html#ref-rerender">[3]</a>)</li>
+        <li>TokenFlow (<a href="supp.html#ref-tokenflow">[4]</a>)</li>
+</ul>
+
+  <table  width="1200" align="center">
+
+      <tr>
+        <tr>
+          <th style="font-size: 20px" colspan="3">Edit Prompt: A <span style="color: red;">pirate</span> is rowing a boat on a lake</th>
+      </tr>
+        <tr>
+            <th style="font-size: 16px">Input video</th>
+            <th style="font-size: 16px">Ours</th>
+            <th style="font-size: 16px">Per frame ControlNet (<a href="supp.html#ref-controlnet">[1]</a>)</th>
+        </tr>
+        <tr>                
+          <th><video width="400" src="new_assets/comparsion/man_rowing.mp4" autoplay loop controls muted /></th>
+          <th><video width="400" src="new_assets/comparsion/man_rowing_ours.mp4" autoplay loop controls muted /></th>
+          <th><video width="400" src="new_assets/comparsion/man_rowing_perframe.mp4" autoplay loop controls muted /></th>           
+          </tr>
+          <tr>
+            <th style="font-size: 16px">CoDeF (<a href="supp.html#ref-codef">[2]</a>)</th>
+            <th style="font-size: 16px">Rerender (<a href="supp.html#ref-rerender">[3]</a>)</th>
+            <th style="font-size: 16px">TokenFlow (<a href="supp.html#ref-tokenflow">[4]</a>)</th>
+        </tr>
+          <tr>
+            <th style="padding-bottom: 30px;"><video width="400" src="new_assets/comparsion/man_rowing_pirate_codef.mp4" autoplay loop controls muted /></th>
+            <th style="padding-bottom: 30px;"><video width="400" src="new_assets/comparsion/man_rowing_rerender.mp4" autoplay loop controls muted /></th>
+            <th style="padding-bottom: 30px;"><video width="400" src="new_assets/comparsion/man_rowing_tokenflow.mp4" autoplay loop controls muted /></th>     
+        </tr>
+
+      <table  width="1200" align="center">
+
+        <tr>
+          <tr>
+            <th style="font-size: 20px" colspan="3">Edit prompt: a <span style="color: red;">oil painting</span> of a tiger walking</th>
+          </tr>
+          <tr>
+              <th style="font-size: 16px">Input video</th>
+              <th style="font-size: 16px">Ours</th>
+              <th style="font-size: 16px">Per frame ControlNet (<a href="supp.html#ref-controlnet">[1]</a>)</th>
+            </tr>
+          <tr>                
+            <th><video width="400" src="new_assets/comparsion/tiger.mp4" autoplay loop controls muted /></th>
+            <th><video width="400" src="new_assets/comparsion/tiger_ours.mp4" autoplay loop controls muted /></th>
+            <th><video width="400" src="new_assets/comparsion/tiger_perframe.mp4" autoplay loop controls muted /></th>           
+            </tr>
+            <tr>
+              <th style="font-size: 16px">CoDeF (<a href="supp.html#ref-codef">[2]</a>)</th>
+              <th style="font-size: 16px">Rerender (<a href="supp.html#ref-rerender">[3]</a>)</th>
+              <th style="font-size: 16px">TokenFlow (<a href="supp.html#ref-tokenflow">[4]</a>)</th>
+          </tr>
+            <tr>
+              <th style="padding-bottom: 30px;"><video width="400" src="new_assets/comparsion/tiger_codef.mp4" autoplay loop controls muted /></th>
+              <th style="padding-bottom: 30px;"><video width="400" src="new_assets/comparsion/tiger_rerender.mp4" autoplay loop controls muted /></th>
+              <th style="padding-bottom: 30px;"><video width="400" src="new_assets/comparsion/tiger_tokenflow.mp4" autoplay loop controls muted /></th>     
+          </tr>
+
+      <table  width="1200" align="center">
+
+        <tr>
+          <tr>
+            <th style="font-size: 20px" colspan="3">Edit Prompt: a woman dressed as santa claus is standing in the snow, <span style="color: red;">in flat 2d anime</span></th>
+          </tr>
+          <tr>
+              <th style="font-size: 16px">Input video</th>
+              <th style="font-size: 16px">Ours</th>
+              <th style="font-size: 16px">Per frame ControlNet (<a href="supp.html#ref-controlnet">[1]</a>)</th>
+            </tr>
+          <tr>                
+            <th><video width="400" src="new_assets/comparsion/woman.mp4" autoplay loop controls muted /></th>
+            <th><video width="400" src="new_assets/comparsion/woman_ours.mp4" autoplay loop controls muted /></th>
+            <th><video width="400" src="new_assets/comparsion/woman_perframe.mp4" autoplay loop controls muted /></th>           
+            </tr>
+            <tr>
+              <th style="font-size: 16px">CoDeF (<a href="supp.html#ref-codef">[2]</a>)</th>
+              <th style="font-size: 16px">Rerender (<a href="supp.html#ref-rerender">[3]</a>)</th>
+              <th style="font-size: 16px">TokenFlow (<a href="supp.html#ref-tokenflow">[4]</a>)</th>
+          </tr>
+            <tr>
+              <th><video width="400" src="new_assets/comparsion/woman_codef.mp4" autoplay loop controls muted /></th>
+              <th><video width="400" src="new_assets/comparsion/woman_rerender.mp4" autoplay loop controls muted /></th>
+              <th><video width="400" src="new_assets/comparsion/woman_tokenflow.mp4" autoplay loop controls muted /></th>     
+          </tr>
+
+        <tr> <td><br /></td> </tr>
+
+</table>
+<!------------------ END SECTION ------------------>
+
+<!------------------ BEGIN SECTION ------------------>
+<hr>
+  
+<h2 id="Ablations" align="left"><a name="image-results" id="image-results"></a>Ablations</h2>
+<p align="left"> We ablate color calibration (Figure 4) and condition types (Figure 7).
+</p>
+<br/>
+
+<table  width="1200" align="center">
+  <tbody>
+    <tr>                
+      <th style="font-size: 16px">Ablation of color calibration(Figure 4). When the autoregressive evaluation goes from 1st batch to 7th batch, the results without color calibration become gray (in middle). The results are more stable with the proposed color calibration (in right). Edit prompt: "A man running on Mars". </th>
+      </tr>
+    <tr>                
+      <th style="padding-bottom: 25px;"><video width="800" src="new_assets/ablation/ablation_color_calib.mp4" autoplay loop controls muted /></th>
+      </tr>
+
+
+      
+      <tr>                
+        <th style="font-size: 16px">Ablation study of different spatial conditions.(Figure 7). Canny edge provides more detailed controls (good for stylization) while depth map provides more editing flexibility (good for object swap). </th>
+        </tr>
+      <tr>                
+        <th><video width="1000" src="new_assets/ablation/ablation_canny_depth.mp4" autoplay loop controls muted /></th>
+        </tr>
+      <tr> <td><br /></td> </tr>
+
+  </tbody>
+</table> 
+<!------------------ END SECTION ------------------>	
+
+
+<!------------------ BEGIN SECTION ------------------>
+<hr>
+  
+<h2 id="Limitations" align="left"><a name="image-results" id="image-results"></a>Limitations</h2>
+<p align="left"> We show limitations of our FlowVid (Figure 9).
+</p>
+<br/>
+
+<table  width="1200" align="center">
+  <tbody>
+    <tr>                
+      <th style="font-size: 16px">Limitations of FlowVid. Failure cases include the edited first frame doesn't align structurally with original first frame (the top elephant video), and large occlusions caused by fast motion (the bottom ballerina video). </th>
+      </tr>
+    <tr>                
+      <th style="padding-bottom: 10px;"><video width="1000" src="new_assets/limitations/limitations_elephant.mp4" autoplay loop controls muted /></th>
+      </tr>
+      <tr>                
+        <th><video width="1000" src="new_assets/limitations/limitations_ballerina.mp4" autoplay loop controls muted /></th>
+        </tr>
+      <tr> <td><br /></td> </tr>
+
+  </tbody>
+</table> 
+<!------------------ END SECTION ------------------>	
+
+
+  <p>&nbsp;</p>
+
+
+  <p>
+    <a name="ref-controlnet" id="ref-controlnet"></a>
+    [1] Zhang, Lvmin, Anyi Rao, and Maneesh Agrawala. "Adding conditional control to text-to-image diffusion models." Proceedings of the IEEE/CVF International Conference on Computer Vision. 2023.
+  </p>
+  <p>
+    <a name="ref-codef" id="ref-codef"></a>
+    [2] Ouyang, Hao, et al. "Codef: Content deformation fields for temporally consistent video processing." arXiv preprint arXiv:2308.07926 (2023).
+  </p>
+  <p>
+    <a name="ref-rerender" id="ref-rerender"></a>
+    [3] Shuai Yang, Yifan Zhou, Ziwei Liu, and Chen Change Loy. Rerender a video: Zero-shot text-guided video-to-video translation, 2023.
+  </p>
+  <p>
+    <a name="ref-tokenflow" id="ref-tokenflow"></a>
+    [4] Geyer, Michal, et al. "Tokenflow: Consistent diffusion features for consistent video editing." arXiv preprint arXiv:2307.10373 (2023).
+  </p>
+</div>
+
+</body></html>
