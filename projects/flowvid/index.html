@@ -22,6 +22,21 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+  <style>
+    table {
+      font-family: Arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    th {
+      background-color: #dddddd;
+    }
+  </style>
 </head>
 <body>
 
@@ -75,12 +90,12 @@
           <div class="column has-text-centered">
             <div class="publication-links">
               <span class="link-block">
-                <a href=""
+                <a href="https://arxiv.org/abs/2312.17681"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
                   </span>
-                  <span>arXiv (coming)</span>
+                  <span>arXiv</span>
                 </a>
               </span>
               <!-- Video Link. -->
@@ -249,7 +264,6 @@
         <div class="subtitle has-text-justified">
           <p>
             <span style="color: orange; font-weight:bold">Use your cursor on the video to slide left/right.</span>. The left is the input video, the right is the synthesized video. The edited keyword is marked as <span style="color: rgb(0, 165, 255)">blue.</span>
-            For more results on DAVIS, please see <a href="https://drive.google.com/drive/u/0/folders/1sxwhorvWI6EgM8qBmU3thUGeunEnESxQ">this link</a>.
             You may also want to check 
             <a href="https://jeff-liangf.github.io/projects/flowvid/supp/supp.html#comparisons_baselines_container">comparsion with other methods</a>,
             <a href="https://jeff-liangf.github.io/projects/flowvid/supp/supp.html#Ablations">ablations</a>, and
@@ -276,6 +290,51 @@
           </p>
           <br>
           
+        <h2 class="title is-3">Quantitative Comparsion with other methods</h2>
+
+        <div class="subtitle has-text-justified">
+          <p>
+            We conduct a user study on 25 DAVIS videos and 115 manually designed prompts.
+            For results on DAVIS, please see <a href="https://drive.google.com/drive/u/0/folders/1sxwhorvWI6EgM8qBmU3thUGeunEnESxQ">this link</a>.
+          </p>
+        </div>    
+
+          <table>
+            <tr>
+              <th></th>
+              <th>Preference rate (mean ± std %) ↑</th>
+              <th>Runtime (mins) ↓</th>
+              <th>Cost ↓</th>
+            </tr>
+            <tr>
+              <td>TokenFlow</td>
+              <td>40.4 ± 5.3</td>
+              <td>15.8</td>
+              <td>10.5 ×</td>
+            </tr>
+            <tr>
+              <td>Rerender</td>
+              <td>10.2 ± 7.1</td>
+              <td>10.8</td>
+              <td>7.2 ×</td>
+            </tr>
+            <tr>
+              <td>CoDeF</td>
+              <td>3.5 ± 1.9</td>
+              <td>4.6</td>
+              <td>3.1 ×</td>
+            </tr>
+            <tr>
+              <td>FlowVid (Ours)</td>
+              <td><span style="color: orange; font-weight:bold">45.7</span> ± 6.4</td>
+              <td><span style="color: orange; font-weight:bold">1.5</span></td>
+              <td><span style="color: orange; font-weight:bold">1.0 ×</span></td>
+            </tr>
+          </table>
+          <p>
+          <span style="color: orange; font-weight:bold">Quantitative comparison with existing V2V models.</span> The preference rate indicates the frequency the method is preferred among all the four methods in human evaluation. Runtime shows the time to synthesize a 4-second video with 512x512 resolution on one A-100-80GB. Cost is normalized with our method.</p>
+
+
       </div>
     </div>
 
