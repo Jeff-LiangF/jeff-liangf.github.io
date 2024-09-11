@@ -35,6 +35,8 @@
   <ul>
 	<li><a href="supp.html#comparisons_baselines_container">Comparison with state-of-the-art video-to-video methods</a></li>
   <li><a href="supp.html#Ablations">Ablations</a></li>
+  <li><a href="supp.html#Continuous_t2i">Continuous image generation with feature bank</a></li>
+  <li><a href="supp.html#long_video">Long video (>1000 frames) translation</a></li>
   <li><a href="supp.html#Limitations">Limitations</a></li>
   </ul>
   <p><br>All videos are compressed. We recommend watching all videos in full screen. Click on the videos for seeing them in full scale.</p>
@@ -127,6 +129,57 @@
 <!------------------ END SECTION ------------------>	
 
 
+<p>&nbsp;</p>
+<hr>
+
+
+<h2 id="Continuous_t2i" align="left"><a name="image-results" id="image-results"></a>Continuous image generation with feature bank</h2>
+<table width="100%" align="center">
+  <tbody>
+    <tr>                
+      <th style="font-size: 18px; padding-bottom: 20px;">(Fig.9) Left: Per-frame LCM baseline has severe flickering even with slight one or two-word modification. Right: Feature bank would provide a much smoother transition.</th>
+    </tr>
+    <tr>                
+      <th style="padding-bottom: 25px;"><video width="100%" src="assets/continuous_t2i.mp4" autoplay loop controls muted /></th>
+    </tr>
+    <tr> 
+      <td style="height: 50px;"></td> <!-- Adjust the height here to increase or decrease the space -->
+    </tr>
+  </tbody>
+</table>
+
+
+
+<p>&nbsp;</p>
+<hr>
+
+<h2 id="long_video" align="left"><a name="image-results" id="image-results"></a>Long video (>1000 frames) translation</h2>
+<table width="100%" align="center">
+  <tbody>
+    <tr>                
+      <th style="font-size: 18px; padding-bottom: 20px;">(Fig.15) Long video ($>$ 1000 frames) generation. Our StreamV2V can handle arbitrary length of videos without consistency degradation.</th>
+    </tr>
+    <tr>                
+      <th style="padding-bottom: 25px;"><video width="100%" src="assets/half_minute_video.mp4" autoplay loop controls muted /></th>
+    </tr>
+    <tr> 
+      <td style="height: 50px;"></td> <!-- Adjust the height here to increase or decrease the space -->
+    </tr>
+  </tbody>
+</table>
+
+<!-- <h2 id="long_video" align="left"><a name="image-results" id="image-results"></a>Long video (>1000 frames) translation</h2>
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="tree" autoplay controls loop width="100%">
+        <source src="./assets/half_minute_video.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section> -->
+
+
 <!------------------ BEGIN SECTION ------------------>
 <p>&nbsp;</p>
 <hr>
@@ -137,7 +190,7 @@
 <table  width="100%" align="center">
   <tbody>
     <tr>                
-      <th style="font-size: 18px; padding-bottom: 10px;">(Fig.9) Limitations of StreamV2V.</th>
+      <th style="font-size: 18px; padding-bottom: 10px;">(Fig.10) Limitations of StreamV2V.</th>
       </tr>
       <tr>                
         <th style="font-size: 16px; padding-bottom: 0px;">(a). StreamV2V fails to alter the person within the input video into Pope or Batman.</th>
