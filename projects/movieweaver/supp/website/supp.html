@@ -1,0 +1,482 @@
+<link href="https://fonts.cdnfonts.com/css/chalkduster" rel="stylesheet">
+<style>
+    @import url('https://fonts.cdnfonts.com/css/chalkduster');
+</style>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Movie Weaver: Tuning-Free Multi-Concept Video Personalization with Anchored Prompts </title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<button style="position: fixed;right: 15px;top:  50%;height: 100px;width: 140px; font-size: 20px;" type="button"><a href="supp.html#top">Back to top</a></button>
+<div class="page-container">
+  <h1 align="center">Movie Weaver: Tuning-Free Multi-Concept Video Personalization with Anchored Prompts</h1>
+  <h2 align="center">Supplementary Material</h2>
+
+  <p align="center">&nbsp;</p>
+	<a href="supp.html#top"></a>
+  <ul>
+	<li><a href="supp.html#our_results_container">Movie Weaver supports different reference configuration (Figure 1)</a></li>
+	<li><a href="supp.html#results_highlights">Qualitative results of Movie Weaver (Figure 5)</a></li>
+  <li><a href="supp.html#comparison">Comparison with state-of-the-art ViDu 1.5 (Figure 6)</a></li>
+  <li><a href="supp.html#ablation">Ablation Study (Figure 7)</a></li>
+  <li><a href="supp.html#limitations">Limitations (Figure 8)</a></li>
+  <li><a href="supp.html#reference_order">Reference order change (Figure 1 of Appendix)</a></li>
+  </ul>
+  <p><br><strong style="color: orange;">We recommend watching all videos in full screen. Click on the videos for seeing them in full scale. </strong></p>
+
+  <!------------------ BEGIN SECTION ------------------>
+
+  <p>&nbsp;</p>
+  <hr>
+
+  <h2 id="our_results_container" align="left"><a name="image-results" id="image-results"></a>Movie Weaver supports different reference configuration (Figure 1)</h2>
+
+  <p align="left">
+  </p>
+  <div id="videoSet1" style="width: 1000px; margin: 0 auto; text-align: center;">
+    <p style="font-family: Arial, sans-serif; font-size: 20px; margin: 20px 0;">
+      <strong style="color: orange;">Reference combinations:</strong> Please select!
+   </p>
+    <div style="margin-bottom: 15px;">
+        <img class="thumbnail" src="videos/fig1/face_1.png" alt="Image 1" data-video="videos/fig1/face_1.mp4" data-prompt="The video shows a young man <strong style='color: orange;'>[R1]</strong> holding a dog in his arms. The man is standing on a sidewalk in front of a row of buildings. The man is holding the dog in his arms and smiling at the camera. He then looks down at the dog and smiles. He then looks back at the camera and smiles. The camera is static." style="margin: 0 10px;">
+        <img class="thumbnail" src="videos/fig1/facebody_1.png" alt="Image 2" data-video="videos/fig1/facebody_1.mp4" data-prompt="The video shows a young man <strong style='color: orange;'>[R1] [R2]</strong> holding a dog in his arms. The man is standing on a sidewalk in front of a row of buildings. The man is holding the dog in his arms and smiling at the camera. He then looks down at the dog and smiles. He then looks back at the camera and smiles. The camera is static." style="margin: 0 10px;">
+        <img class="thumbnail" src="videos/fig1/facebodyanimal_1.png" alt="Image 3" data-video="videos/fig1/facebodyanimal_1.mp4" data-prompt="The video shows a young man <strong style='color: orange;'>[R1] [R2]</strong> holding a dog <strong style='color: orange;'>[R3]</strong> in his arms. The man is standing on a sidewalk in front of a row of buildings. The man is holding the dog in his arms and smiling at the camera. He then looks down at the dog and smiles. He then looks back at the camera and smiles. The camera is static." style="margin: 0 10px;">
+        <img class="thumbnail" src="videos/fig1/face_2.png" alt="Image 4" data-video="videos/fig1/face_2.mp4" data-prompt="The video shows a woman <strong style='color: orange;'>[R1]</strong>and a dog enjoying a picnic in a park. The woman is lying on her stomach on a black blanket, with her head resting on her hand. The dog is sitting on the woman's lap, looking up at her. The woman is petting the dog's head and back, and the dog is licking her hand. In the background, there are trees and grass, and a few people walking around. The camera is static." style="margin: 0 10px;">
+        <img class="thumbnail" src="videos/fig1/facebody_2.png" alt="Image 5" data-video="videos/fig1/facebody_2.mp4" data-prompt="The video shows a woman <strong style='color: orange;'>[R1] [R2]</strong>and a dog enjoying a picnic in a park. The woman is lying on her stomach on a black blanket, with her head resting on her hand. The dog is sitting on the woman's lap, looking up at her. The woman is petting the dog's head and back, and the dog is licking her hand. In the background, there are trees and grass, and a few people walking around. The camera is static." style="margin: 0 10px;">
+        <img class="thumbnail" src="videos/fig1/facebodyanimal_2.png" alt="Image 6" data-video="videos/fig1/facebodyanimal_2.mp4" data-prompt="The video shows a woman <strong style='color: orange;'>[R1] [R2]</strong>and a dog <strong style='color: orange;'>[R3]</strong> enjoying a picnic in a park. The woman is lying on her stomach on a black blanket, with her head resting on her hand. The dog is sitting on the woman's lap, looking up at her. The woman is petting the dog's head and back, and the dog is licking her hand. In the background, there are trees and grass, and a few people walking around. The camera is static." style="margin: 0 10px;">
+      </div>
+
+    <p id="dynamicPrompt1" style="font-family: Arial, sans-serif; font-size: 20px; margin: 20px 0;">
+        <strong style="color: orange;">Prompt:</strong> The video shows a young man <strong style="color: orange;">[R1]</strong> holding a dog in his arms. The man is standing on a sidewalk in front of a row of buildings. The man is holding the dog in his arms and smiling at the camera. He then looks down at the dog and smiles. He then looks back at the camera and smiles. The camera is static.
+    </p>
+
+    <div class="video-container" style="text-align: center;">
+        <video id="videoPlayer1" controls autoplay loop style="display: block; margin: 0 auto; width: 800px;">
+            <source src="videos/fig1/face_1.mp4" type="video/mp4">
+        </video>
+    </div>
+</div>
+
+<!-- Dashed Line and Space -->
+<hr style="border: 1px dashed #ccc; margin: 40px 0;">
+
+<div id="videoSet2" style="width: 1200px; margin: 0 auto; text-align: center;">
+  <p style="font-family: Arial, sans-serif; font-size: 20px; margin: 20px 0;">
+    <strong style="color: orange;">Reference combinations:</strong> Please select!
+ </p>
+
+  <div style="margin-bottom: 15px;">
+        <img class="thumbnail" src="videos/fig1/twoface_1.png" alt="Image 1" data-video="videos/fig1/twoface_1.mp4" data-prompt="A man <strong style='color: orange;'>[R1]</strong> and a woman <strong style='color: orange;'>[R2]</strong>  are working in a data center with rows of server racks and super computers. They are discussing their work as they check cables and other equipment. The video shows two people in a server room. The woman holds a black tablet in her hand on the left. The man holds a black notebook in his hand on the left. The background is a dark server room with rows of servers and a white ceiling. The woman walks to the left, looking at the man . She smiles and talks to him. The man looks at her and smiles. He talks to her and gestures with his hand on the right. The camera is handheld." style="margin: 0 10px;">
+        <img class="thumbnail" src="videos/fig1/twofacebody_1.png" alt="Image 2" data-video="videos/fig1/twofacebody_1.mp4" data-prompt="A man <strong style='color: orange;'>[R1] [R2]</strong> and a woman <strong style='color: orange;'>[R3] [R4]</strong>  are working in a data center with rows of server racks and super computers. They are discussing their work as they check cables and other equipment. The video shows two people in a server room. The woman holds a black tablet in her hand on the left. The man holds a black notebook in his hand on the left. The background is a dark server room with rows of servers and a white ceiling. The woman walks to the left, looking at the man . She smiles and talks to him. The man looks at her and smiles. He talks to her and gestures with his hand on the right. The camera is handheld." style="margin: 0 10px;">
+        <img class="thumbnail" src="videos/fig1/twoface_2.png" alt="Image 3" data-video="videos/fig1/twoface_2.mp4" data-prompt="Young a man <strong style='color: orange;'>[R1]</strong> and a woman <strong style='color: orange;'>[R2]</strong> jogging in the park in slow motionThe video shows a man and woman jogging on a paved path. They are both jogging on a paved path that is surrounded by greenery. The man is holding a black whistle around his neck. The woman is holding her hands to her chest. The man is holding his hands to his sides. They are both jogging towards the camera. The camera is handheld." style="margin: 0 10px;">
+        <img class="thumbnail" src="videos/fig1/twofacebody_2.png" alt="Image 4" data-video="videos/fig1/twofacebody_2.mp4" data-prompt="Young a man <strong style='color: orange;'>[R1] [R2]</strong> and a woman <strong style='color: orange;'>[R3] [R4]</strong> jogging in the park in slow motionThe video shows a man and woman jogging on a paved path. They are both jogging on a paved path that is surrounded by greenery. The man is holding a black whistle around his neck. The woman is holding her hands to her chest. The man is holding his hands to his sides. They are both jogging towards the camera. The camera is handheld." style="margin: 0 10px;">
+      </div>
+
+    <p id="dynamicPrompt2" style="font-family: Arial, sans-serif; font-size: 20px; margin: 20px 0;">
+        <strong style="color: orange;">Prompt:</strong> A man <strong style="color: orange;">[R1]</strong> and a woman <strong style="color: orange;">[R2]</strong>  are working in a data center with rows of server racks and super computers. They are discussing their work as they check cables and other equipment. The video shows two people in a server room. The woman holds a black tablet in her hand on the left. The man holds a black notebook in his hand on the left. The background is a dark server room with rows of servers and a white ceiling. The woman walks to the left, looking at the man . She smiles and talks to him. The man looks at her and smiles. He talks to her and gestures with his hand on the right. The camera is handheld.
+    </p>
+
+    <div class="video-container" style="text-align: center;">
+        <video id="videoPlayer2" controls autoplay loop style="display: block; margin: 0 auto; width: 800px;">
+            <source src="videos/fig1/twoface_1.mp4" type="video/mp4">
+        </video>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+<hr>
+
+<h2 id="results_highlights" align="left"><a name="image-results" id="image-results"></a>Qualitative results of Movie Weaver (Figure 5)</h2>
+
+<div id="videoSet3" style="width: 1200px; margin: 0 auto; text-align: center;">
+  <p style="font-family: Arial, sans-serif; font-size: 20px; margin: 20px 0;">
+    <strong style="color: orange;">Reference combinations:</strong> Please select!
+ </p>
+
+  <div style="margin-bottom: 15px;">
+        <img class="thumbnail" src="videos/fig5/twoface_0.png" alt="Image 1" data-video="videos/fig5/twoface_0.mp4" data-prompt="A man <strong style='color: orange;'>[R1]</strong> and a man <strong style='color: orange;'>[R2]</strong> Hard Hat Walking, Talking, and Using Tablet Computer. Glass Building or Skyscraper under Construction on Background. Shot on RED Cinema Camera in 4K (UHD).The video shows two men in hard hats and safety vests standing outside a building, looking at a blueprint. They are both looking down at a blueprint in the man's hands. The man on the left is holding a black device in his hand. The background is a large glass building with a metal grid ceiling. The man on the left is looking down at the blueprint, while the man on the right is looking up at the ceiling. The man on the left is pointing at the blueprint with his finger. The camera is handheld." style="margin: 0 10px;">
+        <img class="thumbnail" src="videos/fig5/twoface_1.png" alt="Image 2" data-video="videos/fig5/twoface_1.mp4" data-prompt="A man <strong style='color: orange;'>[R1]</strong> and a man <strong style='color: orange;'>[R2]</strong> Hard Hat Walking, Talking, and Using Tablet Computer. Glass Building or Skyscraper under Construction on Background. Shot on RED Cinema Camera in 4K (UHD).The video shows two men in hard hats and safety vests standing outside a building, looking at a blueprint. They are both looking down at a blueprint in the man's hands. The man on the left is holding a black device in his hand. The background is a large glass building with a metal grid ceiling. The man on the left is looking down at the blueprint, while the man on the right is looking up at the ceiling. The man on the left is pointing at the blueprint with his finger. The camera is handheld." style="margin: 0 10px;">
+        <img class="thumbnail" src="videos/fig5/twoface_2.png" alt="Image 3" data-video="videos/fig5/twoface_2.mp4" data-prompt="A man <strong style='color: orange;'>[R1]</strong> and a man <strong style='color: orange;'>[R2]</strong> Hard Hat Walking, Talking, and Using Tablet Computer. Glass Building or Skyscraper under Construction on Background. Shot on RED Cinema Camera in 4K (UHD).The video shows two men in hard hats and safety vests standing outside a building, looking at a blueprint. They are both looking down at a blueprint in the man's hands. The man on the left is holding a black device in his hand. The background is a large glass building with a metal grid ceiling. The man on the left is looking down at the blueprint, while the man on the right is looking up at the ceiling. The man on the left is pointing at the blueprint with his finger. The camera is handheld." style="margin: 0 10px;">
+        <img class="thumbnail" src="videos/fig5/twoface_3.png" alt="Image 4" data-video="videos/fig5/twoface_3.mp4" data-prompt="A man <strong style='color: orange;'>[R1]</strong> and a man <strong style='color: orange;'>[R2]</strong> Hard Hat Walking, Talking, and Using Tablet Computer. Glass Building or Skyscraper under Construction on Background. Shot on RED Cinema Camera in 4K (UHD).The video shows two men in hard hats and safety vests standing outside a building, looking at a blueprint. They are both looking down at a blueprint in the man's hands. The man on the left is holding a black device in his hand. The background is a large glass building with a metal grid ceiling. The man on the left is looking down at the blueprint, while the man on the right is looking up at the ceiling. The man on the left is pointing at the blueprint with his finger. The camera is handheld." style="margin: 0 10px;">
+      </div>
+
+    <p id="dynamicPrompt3" style="font-family: Arial, sans-serif; font-size: 20px; margin: 20px 0;">
+        <strong style="color: orange;">Prompt:</strong> A man <strong style="color: orange;">[R1]</strong> and a man <strong style="color: orange;">[R2]</strong> Hard Hat Walking, Talking, and Using Tablet Computer. Glass Building or Skyscraper under Construction on Background. Shot on RED Cinema Camera in 4K (UHD).The video shows two men in hard hats and safety vests standing outside a building, looking at a blueprint. They are both looking down at a blueprint in the man's hands. The man on the left is holding a black device in his hand. The background is a large glass building with a metal grid ceiling. The man on the left is looking down at the blueprint, while the man on the right is looking up at the ceiling. The man on the left is pointing at the blueprint with his finger. The camera is handheld.
+    </p>
+
+    <div class="video-container" style="text-align: center;">
+        <video id="videoPlayer3" controls autoplay loop style="display: block; margin: 0 auto; width: 800px;">
+            <source src="videos/fig5/twoface_0.mp4" type="video/mp4">
+        </video>
+    </div>
+</div>
+
+<!-- Dashed Line and Space -->
+<hr style="border: 1px dashed #ccc; margin: 40px 0;">
+
+
+<div id="videoSet4" style="width: 1200px; margin: 0 auto; text-align: center;">
+  <p style="font-family: Arial, sans-serif; font-size: 20px; margin: 20px 0;">
+    <strong style="color: orange;">Reference combinations:</strong> Please select!
+ </p>
+
+  <div style="margin-bottom: 15px;">
+        <img class="thumbnail" src="videos/fig5/facebodyanimal_0.png" alt="Image 1" data-video="videos/fig5/facebodyanimal_0.mp4" data-prompt="The video shows a man <strong style='color: orange;'>[R1] [R2]</strong> and a dog <strong style='color: orange;'>[R3]</strong> sitting at a table with a Christmas tree in the background. The man is holding a fork in his hand on the left and a glass of wine in his hand on the right. The dog is sitting on the right side of the table. The man is looking at the dog and talking to it. The dog is looking at the man and licking its lips. The man then puts the fork down and reaches out to pet the dog. The dog leans in to the man's hand and licks his hand. The camera is static." style="margin: 0 10px;">
+        <img class="thumbnail" src="videos/fig5/facebodyanimal_1.png" alt="Image 2" data-video="videos/fig5/facebodyanimal_1.mp4" data-prompt="The video shows a man <strong style='color: orange;'>[R1] [R2]</strong> and a dog <strong style='color: orange;'>[R3]</strong> sitting at a table with a Christmas tree in the background. The man is holding a fork in his hand on the left and a glass of wine in his hand on the right. The dog is sitting on the right side of the table. The man is looking at the dog and talking to it. The dog is looking at the man and licking its lips. The man then puts the fork down and reaches out to pet the dog. The dog leans in to the man's hand and licks his hand. The camera is static." style="margin: 0 10px;">
+        <img class="thumbnail" src="videos/fig5/facebodyanimal_2.png" alt="Image 3" data-video="videos/fig5/facebodyanimal_2.mp4" data-prompt="The video shows a man <strong style='color: orange;'>[R1] [R2]</strong> and a dog <strong style='color: orange;'>[R3]</strong> sitting at a table with a Christmas tree in the background. The man is holding a fork in his hand on the left and a glass of wine in his hand on the right. The dog is sitting on the right side of the table. The man is looking at the dog and talking to it. The dog is looking at the man and licking its lips. The man then puts the fork down and reaches out to pet the dog. The dog leans in to the man's hand and licks his hand. The camera is static." style="margin: 0 10px;">
+        <img class="thumbnail" src="videos/fig5/facebodyanimal_3.png" alt="Image 4" data-video="videos/fig5/facebodyanimal_3.mp4" data-prompt="The video shows a man <strong style='color: orange;'>[R1] [R2]</strong> and a dog <strong style='color: orange;'>[R3]</strong> sitting at a table with a Christmas tree in the background. The man is holding a fork in his hand on the left and a glass of wine in his hand on the right. The dog is sitting on the right side of the table. The man is looking at the dog and talking to it. The dog is looking at the man and licking its lips. The man then puts the fork down and reaches out to pet the dog. The dog leans in to the man's hand and licks his hand. The camera is static." style="margin: 0 10px;">
+      </div>
+
+    <p id="dynamicPrompt4" style="font-family: Arial, sans-serif; font-size: 20px; margin: 20px 0;">
+        <strong style="color: orange;">Prompt:</strong> The video shows a man <strong style="color: orange;">[R1] [R2]</strong> and a dog <strong style="color: orange;">[R3]</strong> sitting at a table with a Christmas tree in the background. The man is holding a fork in his hand on the left and a glass of wine in his hand on the right. The dog is sitting on the right side of the table. The man is looking at the dog and talking to it. The dog is looking at the man and licking its lips. The man then puts the fork down and reaches out to pet the dog. The dog leans in to the man's hand and licks his hand. The camera is static.
+    </p>
+
+    <div class="video-container" style="text-align: center;">
+        <video id="videoPlayer4" controls autoplay loop style="display: block; margin: 0 auto; width: 800px;">
+            <source src="videos/fig5/facebodyanimal_0.mp4" type="video/mp4">
+        </video>
+    </div>
+</div>
+
+
+<!-- Dashed Line and Space -->
+<hr style="border: 1px dashed #ccc; margin: 40px 0;">
+
+
+<div id="videoSet5" style="width: 1200px; margin: 0 auto; text-align: center;">
+  <p style="font-family: Arial, sans-serif; font-size: 20px; margin: 20px 0;">
+    <strong style="color: orange;">Reference combinations:</strong> Please select!
+ </p>
+
+  <div style="margin-bottom: 15px;">
+        <img class="thumbnail" src="videos/fig5/twofacebody_0.png" alt="Image 1" data-video="videos/fig5/twofacebody_0.mp4" data-prompt="a woman <strong style='color: orange;'>[R1] [R2]</strong> and a man <strong style='color: orange;'>[R3] [R4]</strong> eating salad after fitness workout on beach. Multiracial a woman and a man having a break on beach snacking on a vegan takeaway meal of green veggies laughing together.The video shows a woman and a man sitting on the beach, eating salads. They are both sitting on the sand, with their legs crossed and their feet pointed towards the camera. They are both looking at each other and smiling. The woman is holding a salad in her hand on the left, and the man is holding a salad in his hand on the right. The background is a beach with palm trees and a body of water. The sky is overcast. The camera is static." style="margin: 0 10px;">
+        <img class="thumbnail" src="videos/fig5/twofacebody_1.png" alt="Image 2" data-video="videos/fig5/twofacebody_1.mp4" data-prompt="a woman <strong style='color: orange;'>[R1] [R2]</strong> and a man <strong style='color: orange;'>[R3] [R4]</strong> eating salad after fitness workout on beach. Multiracial a woman and a man having a break on beach snacking on a vegan takeaway meal of green veggies laughing together.The video shows a woman and a man sitting on the beach, eating salads. They are both sitting on the sand, with their legs crossed and their feet pointed towards the camera. They are both looking at each other and smiling. The woman is holding a salad in her hand on the left, and the man is holding a salad in his hand on the right. The background is a beach with palm trees and a body of water. The sky is overcast. The camera is static." style="margin: 0 10px;">
+        <img class="thumbnail" src="videos/fig5/twofacebody_2.png" alt="Image 3" data-video="videos/fig5/twofacebody_2.mp4" data-prompt="a woman <strong style='color: orange;'>[R1] [R2]</strong> and a man <strong style='color: orange;'>[R3] [R4]</strong> eating salad after fitness workout on beach. Multiracial a woman and a man having a break on beach snacking on a vegan takeaway meal of green veggies laughing together.The video shows a woman and a man sitting on the beach, eating salads. They are both sitting on the sand, with their legs crossed and their feet pointed towards the camera. They are both looking at each other and smiling. The woman is holding a salad in her hand on the left, and the man is holding a salad in his hand on the right. The background is a beach with palm trees and a body of water. The sky is overcast. The camera is static." style="margin: 0 10px;">
+        <img class="thumbnail" src="videos/fig5/twofacebody_3.png" alt="Image 4" data-video="videos/fig5/twofacebody_3.mp4" data-prompt="a woman <strong style='color: orange;'>[R1] [R2]</strong> and a man <strong style='color: orange;'>[R3] [R4]</strong> eating salad after fitness workout on beach. Multiracial a woman and a man having a break on beach snacking on a vegan takeaway meal of green veggies laughing together.The video shows a woman and a man sitting on the beach, eating salads. They are both sitting on the sand, with their legs crossed and their feet pointed towards the camera. They are both looking at each other and smiling. The woman is holding a salad in her hand on the left, and the man is holding a salad in his hand on the right. The background is a beach with palm trees and a body of water. The sky is overcast. The camera is static." style="margin: 0 10px;">
+      </div>
+
+    <p id="dynamicPrompt5" style="font-family: Arial, sans-serif; font-size: 20px; margin: 20px 0;">
+        <strong style="color: orange;">Prompt:</strong>a woman <strong style="color: orange;">[R1] [R2]</strong> and a man <strong style="color: orange;">[R3] [R4]</strong> eating salad after fitness workout on beach. Multiracial a woman and a man having a break on beach snacking on a vegan takeaway meal of green veggies laughing together.The video shows a woman and a man sitting on the beach, eating salads. They are both sitting on the sand, with their legs crossed and their feet pointed towards the camera. They are both looking at each other and smiling. The woman is holding a salad in her hand on the left, and the man is holding a salad in his hand on the right. The background is a beach with palm trees and a body of water. The sky is overcast. The camera is static.
+    </p>
+
+    <div class="video-container" style="text-align: center;">
+        <video id="videoPlayer5" controls autoplay loop style="display: block; margin: 0 auto; width: 800px;">
+            <source src="videos/fig5/twofacebody_0.mp4" type="video/mp4">
+        </video>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+<hr>
+
+<h2 id="comparison" align="left"><a name="image-results" id="image-results"></a>Comparison with state-of-the-art ViDu 1.5 (Figure 6)</h2>
+
+<div style="width: 1200px; margin: 0 auto; text-align: center;">
+  <table style="width: 100%; border-collapse: collapse; text-align: center; table-layout: fixed;">
+    <tr>
+      <td style="padding: 10px; vertical-align: middle; font-family: Arial, sans-serif; font-size: 16px;">
+        Reference images of <strong style="color: orange;">Movie Weaver(ours)</strong>
+      </td>
+      <td style="padding: 10px; vertical-align: middle; font-family: Arial, sans-serif; font-size: 16px;">
+        Reference images of <strong style="color: orange;">Vidu 1.5</strong>
+      </td>
+  </tr>
+      <!-- Row 1: References -->
+      <tr>
+          <td style="padding: 10px; vertical-align: middle;">
+              <img src="videos/fig6/movie_weaver_0.png" alt="Reference 1" style="width: auto; height: 150px; display: block; margin: 0 auto;">
+          </td>
+          <td style="padding: 10px; vertical-align: middle;">
+              <img src="videos/fig6/vidu_15_0.png" alt="Reference 2" style="width: auto; height: 150px; display: block; margin: 0 auto;">
+          </td>
+      </tr>
+      <!-- Row 2: Prompts -->
+      <tr>
+          <td style="padding: 10px; vertical-align: middle; font-family: Arial, sans-serif; font-size: 16px;">
+              <strong style="color: orange;">Prompt:</strong> The video shows a woman <strong style="color: orange;">[R1] [R2]</strong> sitting on a bench in a park, petting a dog <strong style="color: orange;">[R3]</strong>. The woman is sitting on a bench, and she is holding the dog in her lap. The woman is smiling and gently petting the dog's head and back. The background is a grassy field with trees and bushes, and a mountain range in the distance. The sky is blue and clear. The camera is static.
+          </td>
+          <td style="padding: 10px; vertical-align: middle; font-family: Arial, sans-serif; font-size: 16px;">
+              <strong style="color: orange;">Prompt:</strong> The video shows a woman sitting on a bench in a park, petting a dog. The woman is sitting on a bench, and she is holding the dog in her lap. The woman is smiling and gently petting the dog's head and back. The background is a grassy field with trees and bushes, and a mountain range in the distance. The sky is blue and clear. The camera is static.
+          </td>
+      </tr>
+      <!-- Row 3: Videos -->
+      <tr>
+          <td style="padding: 10px; vertical-align: middle;">
+              <video controls autoplay loop style="width: 100%; max-width: 500px; display: block; margin: 0 auto;">
+                  <source src="videos/fig6/movie_weaver_0.mp4" type="video/mp4">
+              </video>
+          </td>
+          <td style="padding: 10px; vertical-align: middle;">
+              <video controls autoplay loop style="width: 100%; max-width: 500px; display: block; margin: 0 auto;">
+                  <source src="videos/fig6/vidu_15_0.mp4" type="video/mp4">
+              </video>
+          </td>
+      </tr>
+  </table>
+</div>
+
+<!-- Dashed Line and Space -->
+<hr style="border: 1px dashed #ccc; margin: 40px 0;">
+
+<div style="width: 1200px; margin: 0 auto; text-align: center;">
+  <table style="width: 100%; border-collapse: collapse; text-align: center; table-layout: fixed;">
+    <tr>
+      <td style="padding: 10px; vertical-align: middle; font-family: Arial, sans-serif; font-size: 16px;">
+        Reference images of <strong style="color: orange;">Movie Weaver(ours)</strong>
+      </td>
+      <td style="padding: 10px; vertical-align: middle; font-family: Arial, sans-serif; font-size: 16px;">
+        Reference images of <strong style="color: orange;">Vidu 1.5</strong>
+      </td>
+  </tr>
+      <!-- Row 1: References -->
+      <tr>
+          <td style="padding: 10px; vertical-align: middle;">
+              <img src="videos/fig6/movie_weaver_1.png" alt="Reference 1" style="width: auto; height: 150px; display: block; margin: 0 auto;">
+          </td>
+          <td style="padding: 10px; vertical-align: middle;">
+              <img src="videos/fig6/vidu_15_1.png" alt="Reference 2" style="width: auto; height: 150px; display: block; margin: 0 auto;">
+          </td>
+      </tr>
+      <!-- Row 2: Prompts -->
+      <tr>
+          <td style="padding: 10px; vertical-align: middle; font-family: Arial, sans-serif; font-size: 16px;">
+              <strong style="color: orange;">Prompt:</strong> A man <strong style="color: orange;">[R1] [R2]</strong> and a man <strong style="color: orange;">[R3] [R4]</strong> working and taking notes together in table of a little office.Freelancer meeting, man with laptop drink coffee in coworking.The video shows two men sitting on a black leather couch, looking at a book. The men are sitting on a black leather couch, with a small table in front of them. The man on the left is holding a book, and the man on the right is holding a laptop. The background is a window with a view of the outside. As the video progresses, the man on the left flips the pages of the book, and the man on the right looks at the laptop. The camera is static.
+          </td>
+          <td style="padding: 10px; vertical-align: middle; font-family: Arial, sans-serif; font-size: 16px;">
+              <strong style="color: orange;">Prompt:</strong> A man and a man working and taking notes together in table of a little office. Freelancer meeting, man with laptop drink coffee in coworking.The video shows two men sitting on a black leather couch, looking at a book. The men are sitting on a black leather couch, with a small table in front of them. The man on the left is holding a book, and the man on the right is holding a laptop. The background is a window with a view of the outside. As the video progresses, the man on the left flips the pages of the book, and the man on the right looks at the laptop. The camera is static.
+          </td>
+      </tr>
+      <!-- Row 3: Videos -->
+      <tr>
+          <td style="padding: 10px; vertical-align: middle;">
+              <video controls autoplay loop style="width: 100%; max-width: 500px; display: block; margin: 0 auto;">
+                  <source src="videos/fig6/movie_weaver_1.mp4" type="video/mp4">
+              </video>
+          </td>
+          <td style="padding: 10px; vertical-align: middle;">
+              <video controls autoplay loop style="width: 100%; max-width: 500px; display: block; margin: 0 auto;">
+                  <source src="videos/fig6/vidu_15_1.mp4" type="video/mp4">
+              </video>
+          </td>
+      </tr>
+  </table>
+</div>
+
+
+<p>&nbsp;</p>
+<hr>
+
+<h2 id="ablation" align="left"><a name="image-results" id="image-results"></a>Ablation Study (Figure 7)</h2>
+
+
+<div style="width: 1200px; margin: 0 auto; text-align: center;">
+  <table style="width: 100%; border-collapse: collapse; text-align: center; table-layout: fixed;">
+    <!-- Row 1: Titles -->
+    <tr>
+      <td style="padding: 10px; vertical-align: middle; font-family: Arial, sans-serif; font-size: 16px;">
+        <strong style="color: orange;">w/o</strong> Anchored Prompts (AP), <strong style="color: orange;">w/o</strong> Concept Embeddings (CE)
+      </td>
+      <td style="padding: 10px; vertical-align: middle; font-family: Arial, sans-serif; font-size: 16px;">
+        <strong style="color: orange;">w/o</strong> Anchored Prompts (AP), <strong style="color: orange;">w/</strong> Concept Embeddings (CE)
+      </td>
+      <td style="padding: 10px; vertical-align: middle; font-family: Arial, sans-serif; font-size: 16px;">
+        <strong style="color: orange;">w/</strong> Anchored Prompts (AP), <strong style="color: orange;">w/</strong> Concept Embeddings (CE)
+      </td>
+    </tr>
+    <!-- Row 2: References -->
+    <tr>
+      <td style="padding: 10px; vertical-align: middle;">
+        <img src="videos/fig7/reference.png" alt="Reference 1" style="width: auto; height: 150px; display: block; margin: 0 auto;">
+      </td>
+      <td style="padding: 10px; vertical-align: middle;">
+        <img src="videos/fig7/reference.png" alt="Reference 2" style="width: auto; height: 150px; display: block; margin: 0 auto;">
+      </td>
+      <td style="padding: 10px; vertical-align: middle;">
+        <img src="videos/fig7/reference.png" alt="Reference 3" style="width: auto; height: 150px; display: block; margin: 0 auto;">
+      </td>
+    </tr>
+    <!-- Row 4: Videos -->
+    <tr>
+      <td style="padding: 10px; vertical-align: middle;">
+        <video controls autoplay loop style="width: 100%; max-width: 400px; display: block; margin: 0 auto;">
+          <source src="videos/fig7/wo_AP_wo_CE.mp4" type="video/mp4">
+        </video>
+      </td>
+      <td style="padding: 10px; vertical-align: middle;">
+        <video controls autoplay loop style="width: 100%; max-width: 400px; display: block; margin: 0 auto;">
+          <source src="videos/fig7/wo_AP_w_CE.mp4" type="video/mp4">
+        </video>
+      </td>
+      <td style="padding: 10px; vertical-align: middle;">
+        <video controls autoplay loop style="width: 100%; max-width: 400px; display: block; margin: 0 auto;">
+          <source src="videos/fig7/w_AP_w_CE.mp4" type="video/mp4">
+        </video>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+<p>&nbsp;</p>
+<hr>
+
+<h2 id="limitations" align="left"><a name="image-results" id="image-results"></a>Limitations (Figure 8)</h2>
+
+<div style="width: 1200px; margin: 0 auto; text-align: center;">
+  <table style="width: 100%; border-collapse: collapse; text-align: center; table-layout: fixed;">
+    <tr>
+      <td style="padding: 10px; vertical-align: middle; font-family: Arial, sans-serif; font-size: 16px;">
+        <strong style="color: orange;">Limitation 1</strong>: Reference images can dominate the generation, leading to reduced motion and poor prompt alignment.
+      </td>
+      <td style="padding: 10px; vertical-align: middle; font-family: Arial, sans-serif; font-size: 16px;">
+        <strong style="color: orange;">Limitation 2</strong>: Movie Weaver struggles to generalize to configurations not seen during training.
+      </td>
+  </tr>
+      <!-- Row 1: References -->
+      <tr>
+          <td style="padding: 10px; vertical-align: middle;">
+              <img src="videos/fig8/limitation_1.png" alt="Reference 1" style="width: auto; height: 150px; display: block; margin: 0 auto;">
+          </td>
+          <td style="padding: 10px; vertical-align: middle;">
+              <img src="videos/fig8/limitation_2.png" alt="Reference 2" style="width: auto; height: 150px; display: block; margin: 0 auto;">
+          </td>
+      </tr>
+      <!-- Row 2: Prompts -->
+      <tr>
+          <td style="padding: 10px; vertical-align: middle; font-family: Arial, sans-serif; font-size: 16px;">
+              <strong style="color: orange;">Prompt:</strong> A man <strong style="color: orange;">[R1][R2]</strong> and another man <strong style="color: orange;">[R3][R4]</strong> are playing basketball.
+          </td>
+          <td style="padding: 10px; vertical-align: middle; font-family: Arial, sans-serif; font-size: 16px;">
+              <strong style="color: orange;">Prompt:</strong> A man <strong style="color: orange;">[R1]</strong> in white T-shirt, a man <strong style="color: orange;">[R2]</strong> in black leather jacket and a man <strong style="color: orange;">[R3]</strong> in yellow shirt are talking.
+          </td>
+      </tr>
+      <!-- Row 3: Videos -->
+      <tr>
+          <td style="padding: 10px; vertical-align: middle;">
+              <video controls autoplay loop style="width: 100%; max-width: 500px; display: block; margin: 0 auto;">
+                  <source src="videos/fig8/limitation_1.mp4" type="video/mp4">
+              </video>
+          </td>
+          <td style="padding: 10px; vertical-align: middle;">
+              <video controls autoplay loop style="width: 100%; max-width: 500px; display: block; margin: 0 auto;">
+                  <source src="videos/fig8/limitation_2.mp4" type="video/mp4">
+              </video>
+          </td>
+      </tr>
+  </table>
+</div>
+
+
+
+<p>&nbsp;</p>
+<hr>
+
+<h2 id="reference_order" align="left"><a name="image-results" id="image-results"></a>Reference order change (Figure 1 of Appendix)</h2>
+
+
+<div style="width: 1200px; margin: 0 auto; text-align: center;">
+  <table style="width: 100%; border-collapse: collapse; text-align: center; table-layout: fixed;">
+    <p style="font-family: Arial, sans-serif; font-size: 18px; margin-bottom: 20px;">
+      <strong style="color: orange;">Prompt:</strong>
+      A man wearing a black leather jacket and sunglasses <strong style="color: orange;">[R1]</strong> is sitting on a motorcycle next to a man in a yellow T-shirt <strong style="color: orange;">[R2]</strong>. The video shows the man in the black leather jacket revving the motorcycle's engine, creating a deep, throaty sound. The man in the yellow T-shirt stands beside him, checking his phone and occasionally glancing at the motorcycle. They are parked in an urban alleyway, with graffiti-covered walls and the distant hum of city life in the background. The man on the motorcycle adjusts his sunglasses and nods towards the street, suggesting they are about to leave. The man in the yellow T-shirt pockets his phone and gives a thumbs-up. The camera captures the scene with a slight zoom, focusing on the anticipation of their upcoming ride.
+
+    </p>
+    <!-- Row 1: References -->
+      <tr>
+          <td style="padding: 10px; vertical-align: middle;">
+              <img src="videos/sup_fig1/set_1.png" alt="Reference 1" style="width: auto; height: 150px; display: block; margin: 0 auto;">
+          </td>
+          <td style="padding: 10px; vertical-align: middle;">
+              <img src="videos/sup_fig1/set_2.png" alt="Reference 2" style="width: auto; height: 150px; display: block; margin: 0 auto;">
+          </td>
+      </tr>
+      <!-- Row 3: Videos -->
+      <tr>
+          <td style="padding: 10px; vertical-align: middle;">
+              <video controls autoplay loop style="width: 100%; max-width: 500px; display: block; margin: 0 auto;">
+                  <source src="videos/sup_fig1/set_1.mp4" type="video/mp4">
+              </video>
+          </td>
+          <td style="padding: 10px; vertical-align: middle;">
+              <video controls autoplay loop style="width: 100%; max-width: 500px; display: block; margin: 0 auto;">
+                  <source src="videos/sup_fig1/set_2.mp4" type="video/mp4">
+              </video>
+          </td>
+      </tr>
+
+    <!-- Row 1: References -->
+    <tr>
+      <td style="padding: 10px; vertical-align: middle;">
+          <img src="videos/sup_fig1/set_3.png" alt="Reference 1" style="width: auto; height: 150px; display: block; margin: 0 auto;">
+      </td>
+      <td style="padding: 10px; vertical-align: middle;">
+          <img src="videos/sup_fig1/set_4.png" alt="Reference 2" style="width: auto; height: 150px; display: block; margin: 0 auto;">
+      </td>
+  </tr>
+  <!-- Row 3: Videos -->
+  <tr>
+      <td style="padding: 10px; vertical-align: middle;">
+          <video controls autoplay loop style="width: 100%; max-width: 500px; display: block; margin: 0 auto;">
+              <source src="videos/sup_fig1/set_3.mp4" type="video/mp4">
+          </video>
+      </td>
+      <td style="padding: 10px; vertical-align: middle;">
+          <video controls autoplay loop style="width: 100%; max-width: 500px; display: block; margin: 0 auto;">
+              <source src="videos/sup_fig1/set_4.mp4" type="video/mp4">
+          </video>
+      </td>
+  </tr>
+  </table>
+</div>
+
+
+<script>
+  function initializeVideoSet(containerId, videoPlayerId, dynamicPromptId) {
+      const container = document.getElementById(containerId);
+      const thumbnails = container.querySelectorAll('.thumbnail');
+      const videoPlayer = document.getElementById(videoPlayerId);
+      const videoSource = videoPlayer.querySelector('source');
+      const dynamicPrompt = document.getElementById(dynamicPromptId);
+
+      // Set initial active thumbnail
+      thumbnails[0].classList.add('active');
+
+      // Add click event to each thumbnail
+      thumbnails.forEach(thumbnail => {
+          thumbnail.addEventListener('click', () => {
+              const videoSrc = thumbnail.getAttribute('data-video');
+              const promptText = thumbnail.getAttribute('data-prompt');
+
+              // Avoid reloading the video if it's already playing
+              if (videoSource.src.endsWith(videoSrc)) {
+                  return;
+              }
+
+              // Update the video source and reload the video
+              videoSource.src = videoSrc;
+              videoPlayer.load();
+              videoPlayer.play();
+
+              // Update the dynamic prompt
+              dynamicPrompt.innerHTML = `<strong style="color: orange;">Prompt:</strong> ${promptText}`;
+
+              // Update active thumbnail
+              thumbnails.forEach(thumb => thumb.classList.remove('active'));
+              thumbnail.classList.add('active');
+          });
+      });
+  }
+
+  // Initialize each video set separately
+  initializeVideoSet('videoSet1', 'videoPlayer1', 'dynamicPrompt1');
+  initializeVideoSet('videoSet2', 'videoPlayer2', 'dynamicPrompt2');
+  initializeVideoSet('videoSet3', 'videoPlayer3', 'dynamicPrompt3');
+  initializeVideoSet('videoSet4', 'videoPlayer4', 'dynamicPrompt4');
+  initializeVideoSet('videoSet5', 'videoPlayer5', 'dynamicPrompt5');
+</script>
+
+</body></html>

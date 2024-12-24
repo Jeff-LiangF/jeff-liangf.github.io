@@ -1,0 +1,47 @@
+template_prompt = """
+You are an great editor that helps to understand and edit prompt.
+You will be provided with one prompt and a object word that usually describes one person activity.
+You need firstly locate the subject pharse, full body description such as clothing, one certain object.
+Then, you return three items: concept_descriptions, anchored_prompts .
+concept_descriptions is a list of three keys wrods that describe the subject pharse, full body description such as clothing, one certain object.
+anchored_prompts is a refined prompt by adding the ID indentifier <ID1> <ID2> <ID3> after the concept_descriptions. Remeber that subject pharse is <ID1>, full body description such as clothing is <ID2>, one certain object is <ID3>.
+
+Guidelines:
+You should follow the orders to perform the task.
+1. Try you best to identify concept_descriptions subject pharse, full body description such as clothing, one certain object.
+2. Append the ID indentifier <ID1> <ID2> <ID3> after the concept_descriptions.
+3. replace the concept_descriptions with the ID indentifier <ID1> <ID2> <ID3>.
+
+
+Here are some examples
+Example 1: {example1}
+Example 2: {example2}
+Example 3: {example3}
+Example 3: {example4}
+Now here is input prompt from the user: {input_prompt} with the object word: {object_word}.
+Now generate the concept_descriptions, anchored_prompts. Only output the three items. Do not include any other text or explanation.
+"""
+    kwargs[
+        "example1"
+    ] = "input prompt: The video shows a young woman sitting at a desk, writing in a notebook. She has fair skin and long brown hair. She is wearing a white shirt, a pink jacket, and a pair of white headphones. She is sitting at a desk with a red mug and a pen. She is looking down at the notebook and writing with the pen. She is wearing a pair of white headphones and is looking down at the notebook. She is writing with the pen. The background is a white wall with a window on the left side. There are plants in the window. The camera is static.; \
+    object_word: mug; \
+    concept_descriptions: [a young woman; a white shirt a pink jacket; a red mug]; \
+    anchored_prompts: The video shows a young woman <ID1> sitting at a desk, writing in a notebook. She has fair skin and long brown hair. She is wearing a white shirt, a pink jacket <ID2>, and a pair of white headphones. She is sitting at a desk with a red mug <ID3> and a pen. She is looking down at the notebook and writing with the pen. She is wearing a pair of white headphones and is looking down at the notebook. She is writing with the pen. The background is a white wall with a window on the left side. There are plants in the window. The camera is static.; \
+    kwargs[
+        "example2"
+    ] = "input prompt: The video shows a young girl drinking from a yellow mug. The girl has fair skin and blonde hair. She is wearing a pink shirt and has a yellow mug in her hand. The background is blurry, but it appears to be a field with green grass and yellow flowers. The girl is holding the mug with her hand on the left and is drinking from it. She is looking at the camera and has a neutral expression on her face. As the video progresses, the girl continues to drink from the mug, and the camera zooms in on her face. The girl is wearing a pair of silver butterfly earrings. The camera is handheld. ; \
+    object_word: cup; \
+    concept_descriptions: [a young girl; a pink shirt; a yellow mug]; \
+    anchored_prompts: The video shows a young girl <ID1> drinking from a yellow mug <ID3>. The girl has fair skin and blonde hair. She is wearing a pink shirt <ID2> and has a yellow mug <ID3> in her hand. The background is blurry, but it appears to be a field with green grass and yellow flowers. The girl is holding the mug with her hand on the left and is drinking from it. She is looking at the camera and has a neutral expression on her face. As the video progresses, the girl continues to drink from the mug, and the camera zooms in on her face. The girl is wearing a pair of silver butterfly earrings. The camera is handheld.; \
+    kwargs[
+        "example3"
+    ] = "input prompt: The video shows a young boy and his dog playing on the beach. The boy has fair skin and short brown hair. He is wearing a navy blue t-shirt and brown shorts. The dog is a white Jack Russell Terrier with brown ears and a brown nose. The boy is sitting on the sand, holding the dog's leash in his hand on the left. The dog is standing in front of him, facing the right. The boy is smiling and looking at the dog. The dog is looking at the boy and wagging its tail. The boy is holding the leash in his hand on the left and using his hand on the right to pet the dog. The dog is jumping up and down, wagging its tail. The camera is static.; \
+    object_word: dog; \
+    concept_descriptions: [a young boy; a navy blue t-shirt and brown shorts; his dog]; \
+    anchored_prompts: The video shows a young boy <ID1> and his dog <ID3> playing on the beach. The boy has fair skin and short brown hair. He is wearing a navy blue t-shirt and brown shorts <ID2>. The dog <ID3> is a white Jack Russell Terrier with brown ears and a brown nose. The boy is sitting on the sand, holding the dog's leash in his hand on the left. The dog is standing in front of him, facing the right. The boy is smiling and looking at the dog. The dog is looking at the boy and wagging its tail. The boy is holding the leash in his hand on the left and using his hand on the right to pet the dog. The dog is jumping up and down, wagging its tail. The camera is static.; \
+    kwargs[
+        "example4"
+    ] = "input prompt: The video shows a young woman with curly hair, wearing a black leather jacket, a pink floral top, and black knee-high boots, sitting on a black scooter. She is standing on a sidewalk, with a brick wall on the left and a tree on the right. The background is a city street with a sidewalk and a tree on the right. The woman is looking down at the scooter's handlebars, with her hand on the right on the handlebar and her hand on the left on the gear shift. She is wearing a watch on her left wrist. As the video progresses, she looks up and smiles, then looks down again. The camera is handheld. ; \
+    object_word: motocycle; \
+    concept_descriptions: [a young woman; a black leather jacket a pink floral top and black knee-high boots; a black scooter]; \
+    anchored_prompts: The video shows a young woman <ID1> with curly hair, wearing a black leather jacket, a pink floral top, and black knee-high boots <ID2>, sitting on a black scooter <ID3>. She is standing on a sidewalk, with a brick wall on the left and a tree on the right. The background is a city street with a sidewalk and a tree on the right. The woman is looking down at the scooter's handlebars, with her hand on the right on the handlebar and her hand on the left on the gear shift. She is wearing a watch on her left wrist. As the video progresses, she looks up and smiles, then looks down again. The camera is handheld. ; \

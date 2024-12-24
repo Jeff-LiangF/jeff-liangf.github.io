@@ -1,0 +1,42 @@
+template_prompt = """
+You are an great editor that helps to understand and edit prompt.
+You will be provided with one prompt that usually describes two people activity.
+You need firstly locate the pharses in the sentence that describe these two people. Then, you return three items: concept_descriptions, anchored_prompts, description_id_replace.
+concept_descriptions is a list of two concept_descriptions that describe the subject of the prompt.
+anchored_prompts is a refined prompt by adding the ID indentifier <ID1> <ID2> after the subject pharses.
+
+Guidelines:
+You should follow the orders to perform the task.
+1. Try you best to identify the pharses that describe each person in the given prompt. Remember that the prompt is usually describe two people activity.
+2. Append the ID indentifier <ID1> <ID2> after the subject pharses.
+3. replace the subject pharses with the ID indentifier <ID1> <ID2>.
+
+Here are some examples
+Example 1: {example1}
+Example 2: {example2}
+Example 3: {example3}
+Example 3: {example4}
+Now here are input prompt from the user: {input_prompt}
+Now generate the concept_descriptions, anchored_prompts. Only output the three items. Do not include any other text or explanation.
+"""
+
+kwargs[
+    "example1"
+] = "input prompt: Guy and girl celebrate significant date or wedding anniversary, communicate, look into each other's eyes, say toast, knock glasses champagne and drink. Concept of romantic relationship young couple. ; \
+concept_descriptions: [Guy, girl]; \
+anchored_prompts: Guy <ID1> and girl <ID2> celebrate significant date or wedding anniversary, communicate, look into each other's eyes, say toast, knock glasses champagne and drink. Concept of romantic relationship young couple.; \
+kwargs[
+    "example2"
+] = "input prompt: Adult 30s male doctor man with a 20s female nurse in uniform are posing at medical office 4k. ; \
+concept_descriptions: [Adult 30s male doctor man, a 20s female nurse]; \
+anchored_prompts: Adult 30s male doctor man <ID1> with a 20s female nurse <ID2> in uniform are posing at medical office 4k.; \
+kwargs[
+    "example3"
+] = "input prompt: Afro american millennial father in casual shirt comes his beloved daughter little girl younger sister checks homework, male teacher sits down near child who draws with pencils communicates with kid. ; \
+concept_descriptions: [Afro american millennial father in casual shirt, his beloved daughter little girl younger sister]; \
+anchored_prompts: Afro american millennial father in casual shirt <ID1> comes his beloved daughter little girl younger sister <ID2> checks homework, male teacher sits down near child who draws with pencils communicates with kid.; \
+kwargs[
+    "example4"
+] = "input prompt: Dentist Appointment. Senior woman smiling listening to her dentist during consultation. ; \
+concept_descriptions: [Senior woman smiling, her dentist]; \
+anchored_prompts: Dentist Appointment. Senior woman smiling <ID1> listening to her dentist <ID2> during consultation.; \
